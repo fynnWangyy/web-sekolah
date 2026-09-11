@@ -1,0 +1,430 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0d47a1; /* Warna Biru Sekolah */
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffca28; /* Warna kuning saat kursor ditempelkan */
+}
+
+#beranda {
+    background: linear-gradient(rgba(13, 71, 161, 0.8), rgba(13, 71, 161, 0.8)), url('assets/kepala-sekolah.jpg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+#beranda h1 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+}
+
+#beranda p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+#beranda button {
+    background-color: #ffca28;
+    color: #0d47a1;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#beranda button:hover {
+    transform: scale(1.05);
+}
+
+section {
+    padding: 60px 8%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #0d47a1;
+    margin-bottom: 30px;
+}
+
+#profil {
+    background-color: white;
+    text-align: center;
+    max-width: 800px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+#profil img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #0d47a1;
+}
+
+.ekskul-container, .berita-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.ekskul-card, .berita-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid #0d47a1;
+    transition: transform 0.3s;
+}
+
+.ekskul-card:hover, .berita-card:hover {
+    transform: translateY(-5px);
+}
+
+.berita-card small {
+    color: #888;
+}
+
+.berita-card h3 {
+    margin: 10px 0;
+}
+
+.berita-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0d47a1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#kontak {
+    background-color: white;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+#kontak form input, #kontak form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#kontak form button {
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#kontak form button:hover {
+    background-color: #082d68;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+}
+
+.filter-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btn-filter {
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 8px 18px;
+    margin: 4px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-filter:hover, .btn-filter.active {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.ekskul-card.hide {
+    display: none;
+}
+.btn-theme {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-theme:hover {
+    background-color: white;
+    color: #0d47a1;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background-color: #081d3f;
+}
+
+body.dark-mode #profil,
+body.dark-mode .ekskul-card,
+body.dark-mode .berita-card,
+body.dark-mode #kontak {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode #kontak form input,
+body.dark-mode #kontak form textarea {
+    background-color: #2d2d2d;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .btn-filter {
+    background-color: #333;
+    color: #ccc;
+}
+
+body.dark-mode .btn-filter.active {
+    background-color: #0d47a1;
+    color: white;
+}
+/* Efek Kursor pada Kartu Ekskul */
+.ekskul-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ekskul-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+body.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .close-modal {
+    color: #ccc;
+}
+
+body.dark-mode .close-modal:hover {
+    color: #fff;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+    animation: fadeEffect 0.8s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.slide img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 35px;
+    left: 5%;
+    right: 5%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
+
+.slide-caption h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.slide-caption p {
+    font-size: 1rem;
+}
+
+.prev-slide, .next-slide {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    user-select: none;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.prev-slide { left: 15px; }
+.next-slide { right: 15px; }
+
+.prev-slide:hover, .next-slide:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-dots {
+    text-align: center;
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    z-index: 10;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: #fff;
+    transform: scale(1.2);
+}
